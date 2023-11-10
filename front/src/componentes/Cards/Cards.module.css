@@ -1,0 +1,60 @@
+
+ 
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start; 
+  }
+  
+  .card {
+    width: calc(33.33% - 10px); 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 5px 10px; /* Espacio entre las tarjetas */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Hacer la imagen redonda */
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .card-text {
+    color: #666;
+    font-size: 14px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

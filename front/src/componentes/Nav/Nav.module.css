@@ -1,0 +1,32 @@
+/* NavBar.module.css */
+
+.navBar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+  }
+  
+  .navLink {
+    text-decoration: none; /* Quita la decoración de enlace */
+  }
+  
+  .navButton {
+    background-color: #646cff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+  }
+  
+  .navButton:hover {
+    background-color: #535bf2;
+  }
+  
+  /* Agrega más estilos según tus necesidades */
+  

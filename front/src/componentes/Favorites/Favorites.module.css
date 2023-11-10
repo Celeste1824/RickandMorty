@@ -1,0 +1,7 @@
+.favoritesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 50%;
+
+  }

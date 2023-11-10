@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { addFav, removeFav } from "../../Redux/actions";
 import { useState, useEffect } from "react";
-
-
+import style from './Card.module.css'
 
 const Card = ({ id, name, status, gender, species, origin, image, onClose }) => {
    const dispatch = useDispatch();
@@ -27,7 +26,7 @@ const Card = ({ id, name, status, gender, species, origin, image, onClose }) => 
 
 
    return (
-      <div>
+      <div className={style.container} >
          {
             isFav ? (<button onClick={handleFavorite}>❤️</button>)
                : (<button onClick={handleFavorite}>🤍</button>)

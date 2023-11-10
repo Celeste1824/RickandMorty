@@ -49,10 +49,12 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+ 
 }
 button:hover {
   border-color: #646cff;
   border:#f9f9f9;
+  flex-direction: row;
 }
 button:focus,
 button:focus-visible {
@@ -72,3 +74,29 @@ button:focus-visible {
    
   }
 }
+
+
+about {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.about h2 {
+  color: #74fff8;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.about p {
+color:#f2f2f2;
+font-size: 14 px;
+}
+
+
+
+
+
+
+

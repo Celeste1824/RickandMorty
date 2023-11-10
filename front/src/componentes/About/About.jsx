@@ -1,7 +1,10 @@
+
+
 const About = ()=>{
     return(
-        <div>
-            <h1>About de Celeste</h1>
+        <div className="about">
+            <h2>Rick and Morty</h2>
+            <p>Proyecto de Celeste</p>
         </div>
     )
 };

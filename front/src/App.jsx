@@ -1,17 +1,14 @@
 import './App.css'
 import Cards from './componentes/Cards/Cards';
-import NavBar from './componentes/Nav';
+import NavBar from './componentes/Nav/Nav';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import About from './componentes/About/About';
 import Detail from './componentes/Detail';
 import Forms from './componentes/Forms';
-import Favorites from './componentes/Favorites';
+import Favorites from './componentes/Favorites/Favorites';
 
-
-const EMAIL = 'celepucheta@gmail.com';
-const PASSWORD = 'jtt3939'
 
 function App() {
 
@@ -35,12 +32,21 @@ function App() {
 
   const [access, setAccess] = useState(false);
 
-  const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate('/home');
+  const login = async (userData) => {
+
+    try {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      const { data } = await axios(URL + `?email=${email}&password=${password}`)
+      const { access } = data;
+      setAccess(data);
+      access && navigate('/home');
+
+    } catch (error) {
+      console.log(error.message);
     }
   };
+
 
   useEffect(() => {
     !access && navigate('/');
@@ -49,17 +55,17 @@ function App() {
 
 
 
-  const onSearch = (id) => {
-    axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-celeste1824`)
-      .then(
-        ({ data }) => {
-          if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-          } else {
-            window.alert('¡No hay personajes con este ID!');
-          }
-        }
-      );
+  const onSearch = async (id) => {
+
+    try {
+      const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      }
+    } catch (error) {
+      alert('¡No hay personajes con este ID!');
+    }
   };
 
   const onClose = (id) => {
@@ -74,7 +80,7 @@ function App() {
       {pathname !== '/' && <NavBar onSearch={onSearch} />}
 
       <Routes>
-        <Route path='/' element={<Forms login={login}/>} />
+        <Route path='/' element={<Forms login={login} />} />
 
         <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
 
@@ -91,3 +97,6 @@ function App() {
 };
 
 export default App;
+
+
+
