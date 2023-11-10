@@ -29,7 +29,7 @@ describe("GET /rickandmorty/login", () => {
         expect(response.access).toEqual(true)
     });
     it('La informacion del login es incorrecta!', async () => {
-        const response = (await agent.get("/rickandmorty/login?email=hola@henry.com&password=78864")).body
+        const response = (await agent.get("/rickandmorty/login?email=hola@henry.com&password=788964")).body
         expect(response.access).toEqual(false)
     });
 });
